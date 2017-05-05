@@ -41,4 +41,14 @@ describe Project do
       expect(Project.all).to eq [project1, project2]
     end
   end
+
+  describe '.find' do
+    it 'returns a project by id' do
+      project1 = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+      project1.save
+      project2 = Project.new({:title => 'Habitat for Humanity Build', :id => nil})
+      project2.save
+      expect(Project.find(project1.id)).to eq project1
+    end
+  end
 end
