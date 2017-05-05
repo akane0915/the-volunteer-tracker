@@ -76,4 +76,13 @@ describe Volunteer do
       expect(test_volunteer.hours).to eq 20
     end
   end
+
+  describe '#delete' do
+    it 'allows a user to delete a volunteer' do
+      test_volunteer = Volunteer.new({:name => 'Sally Randall', :hours => 10, :project_id => 1})
+      test_volunteer.save
+      test_volunteer.delete
+      expect(Volunteer.all).to eq []
+    end
+  end
 end

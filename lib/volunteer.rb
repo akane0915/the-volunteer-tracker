@@ -43,4 +43,8 @@ class Volunteer
     DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE name = '#{self.name}' ;")
     DB.exec("UPDATE volunteers SET hours = #{@hours} WHERE name = '#{self.name}' ;")
   end
+
+  def delete
+    DB.exec("DELETE FROM volunteers WHERE name = '#{self.name}';")
+  end
 end
