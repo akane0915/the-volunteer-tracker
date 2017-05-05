@@ -1,9 +1,9 @@
-# example ruby code
+class Volunteer
+  attr_reader(:name, :hours, :project_id)
 
-# class Palindrome
-
-#   def is_word?(user_input)
-#     user_input.match?(/[aeiouy]+/i)
-#   end
-
-# end
+  def initialize(attributes)
+    @name = attributes.fetch(:name)
+    @hours = attributes.fetch(:hours)
+    @project_id = attributes.fetch(:project_id)
+  end
+end

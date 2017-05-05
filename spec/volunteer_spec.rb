@@ -1,19 +1,10 @@
-require "volunteer"
-require "rspec"
-require "pry"
+require "spec_helper"
 
-
-# example project spec
-
-# describe 'Palindrome#isWord?' do
-#   let(:word) { Palindrome.new }
-
-#   it "returns true if the word has at least one vowel" do
-#     expect(word.is_word?("word")).to eq true
-#   end
-
-#   it "returns false if the word does not have a vowel" do
-#     expect(word.is_word?("wrd")).to eq false
-#   end
-
-# end
+describe Volunteer do
+  describe '#name' do
+    it 'returns the name of the volunteer' do
+      test_volunteer = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => 1})
+      expect(test_volunteer.name).to eq 'Sally'
+    end
+  end
+end
