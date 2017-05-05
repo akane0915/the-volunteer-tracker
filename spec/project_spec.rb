@@ -42,6 +42,14 @@ describe Project do
     end
   end
 
+  describe '#save' do
+    it 'adds a project to the projects table' do
+      test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+      test_project.save
+      expect(Project.all).to eq [test_project]
+    end
+  end
+
   describe '.find' do
     it 'returns a project by id' do
       project1 = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
@@ -61,6 +69,35 @@ describe Project do
       volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id})
       volunteer2.save
       expect(test_project.volunteers).to eq [volunteer1, volunteer2]
+    end
+  end
+
+  describe '#update' do
+    it 'allows a user to update a project' do
+      test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+      test_project.save
+      test_project.update({:title => 'Walker Elementary School Garden Planting'})
+      expect(test_project.title).to eq 'Walker Elementary School Garden Planting'
+    end
+  end
+
+  describe '#delete' do
+    it 'allows a user to delete a project' do
+      test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+      test_project.save
+      test_project.delete
+      expect(Project.all).to eq []
+    end
+
+    it 'deletes all volunteers working on a project when that project is deleted' do
+      test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+      test_project.save
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => test_project.id})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id})
+      volunteer2.save
+      test_project.delete
+      expect(Volunteer.all).to eq []
     end
   end
 end

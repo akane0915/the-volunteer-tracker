@@ -38,7 +38,7 @@ class Project
 
   def volunteers
     matched_volunteers =[]
-    db_output = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id}")
+    db_output = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id};")
     db_output.each do |volunteer|
       name = volunteer.fetch('name')
       hours = volunteer.fetch('hours').to_i
@@ -46,5 +46,15 @@ class Project
       matched_volunteers.push(Volunteer.new({:name => name, :hours => hours, :project_id => project_id}))
     end
     matched_volunteers
+  end
+
+  def update(project_details)
+    @title = project_details.fetch(:title)
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{self.id} ;")
+  end
+
+  def delete
+    DB.exec("DELETE FROM projects WHERE id = #{self.id};")
+    DB.exec("DELETE FROM volunteers WHERE project_id = #{self.id};")
   end
 end
