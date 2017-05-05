@@ -36,4 +36,11 @@ class Volunteer
     end
     matched_volunteer
   end
+
+  def update(volunteer_details)
+    @name = volunteer_details.fetch(:name)
+    @hours = volunteer_details.fetch(:hours)
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE name = '#{self.name}' ;")
+    DB.exec("UPDATE volunteers SET hours = #{@hours} WHERE name = '#{self.name}' ;")
+  end
 end

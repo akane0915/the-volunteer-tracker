@@ -61,4 +61,19 @@ describe Volunteer do
       expect(Volunteer.find(volunteer1.name)).to eq volunteer1
     end
   end
+
+  describe '#update' do
+    it 'allows a user to update name of a volunteer' do
+      test_volunteer = Volunteer.new({:name => 'Sally Randall', :hours => 10, :project_id => 1})
+      test_volunteer.save
+      test_volunteer.update({:name => 'Sally Jenkins', :hours => 10, :project_id => 1})
+      expect(test_volunteer.name).to eq 'Sally Jenkins'
+    end
+    it 'allows a user to update hours of a volunteer' do
+      test_volunteer = Volunteer.new({:name => 'Sally Randall', :hours => 10, :project_id => 1})
+      test_volunteer.save
+      test_volunteer.update({:name => 'Sally Jenkins', :hours => 20, :project_id => 1})
+      expect(test_volunteer.hours).to eq 20
+    end
+  end
 end
