@@ -60,3 +60,9 @@ delete'/projects/:id' do
   @projects = Project.all
   erb :index
 end
+
+get '/volunteers/:name/edit' do
+  @name = pararms.fetch('name')
+  @volunteer = Volunteer.find(@name)
+  erb :volunteer_edit
+end

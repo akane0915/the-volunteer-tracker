@@ -2,6 +2,8 @@
 
 <% if @project.volunteers.any? %>
 
+<p>Click on a volunteer to edit their name or hours logged.</p>
+
 <table class="table">
     <thead>
       <tr>
@@ -11,12 +13,12 @@
     </thead>
     <tbody>
       <% @project.volunteers.each do |volunteer| %>
-        <%="
+
         <tr>
-          <td>#{volunteer.name}</td>
-          <td>#{volunteer.hours}</td>
+          <td><a href="/volunteers/<%=volunteer.name%>/edit"><%=volunteer.name%></a></td>
+          <td><%=volunteer.hours%></td>
         </tr>
-        "%>
+
       <% end %>
     </tbody>
   </table>
@@ -27,4 +29,4 @@
 
 <a class = "btn btn-default" href="/projects/<%= @project.id %>/edit">Edit <%= @project.title %> Project</a>
 <hr>
-<a class = "btn btn-default" href="/">Return Home</a>
+<a class = "btn btn-default" href="/">Return Home To Add Volunteers</a>

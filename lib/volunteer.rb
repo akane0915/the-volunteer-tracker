@@ -26,4 +26,14 @@ class Volunteer
   def save
     DB.exec ("INSERT INTO volunteers (name, hours, project_id) VALUES ('#{@name}', #{@hours}, #{@project_id});")
   end
+
+  def Volunteer.find(name)
+    matched_volunteer = nil
+    Volunteer.all.each do |volunteer|
+      if volunteer.name == name
+        matched_volunteer = volunteer
+      end
+    end
+    matched_volunteer
+  end
 end

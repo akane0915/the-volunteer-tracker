@@ -51,4 +51,14 @@ describe Volunteer do
       expect(Volunteer.all).to eq [volunteer1]
     end
   end
+
+  describe '.find' do
+    it 'returns a volunteer by name' do
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => 1})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => 1})
+      volunteer2.save
+      expect(Volunteer.find(volunteer1.name)).to eq volunteer1
+    end
+  end
 end
