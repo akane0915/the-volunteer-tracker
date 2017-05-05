@@ -29,4 +29,26 @@ describe Volunteer do
       expect(volunteer1 == volunteer2).to eq true
     end
   end
+
+  describe '.all' do
+    it 'is empty to start' do
+      expect(Volunteer.all).to eq []
+    end
+
+    it 'returns all volunteers alphabetically' do
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => 1})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => 1})
+      volunteer2.save
+      expect(Volunteer.all).to eq [volunteer2, volunteer1]
+    end
+  end
+
+  describe '#save' do
+    it 'adds a volunteer to the volunteers table' do
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => 1})
+      volunteer1.save
+      expect(Volunteer.all).to eq [volunteer1]
+    end
+  end
 end
