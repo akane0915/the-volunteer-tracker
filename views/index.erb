@@ -1,12 +1,51 @@
-<%= # sample index html
-# <form action="/phrase_parser">
-#   <div class="form-group">
-#      <label for="title">gimme phrase or word!</label>
-#      <input name="phrase1" class="form-control" type="text">
-#      <label for="title">gimme another!</label>
-#      <input name="phrase2" class="form-control" type="text">
-#   </div>
-#   <hr>
-#   <button action="/" class="btn btn-success">what am i?</button>
-# </form>
-%>
+
+<h1>Welcome to <em>BetterTheWorld's</em> Volunteer Tracker</h1>
+<h3>Use this handy dandy application to keep track of projects and volunteers!  Let's BetterTheWorld one project at a time.</h3>
+
+<h3>Create a Project</h3>
+
+<form action="/" method="post">
+  <div class="form-group">
+     <label for="title">Enter the Project Title:</label>
+     <input name="title" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Create Project</button>
+</form>
+<hr>
+
+<% if @projects.any? %>
+  <h3>Click on a project to see its volunteers:</h3>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><a href="/projects/<%= project.id%>"><%= project.title%></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No project have been created yet!</p>
+<% end %>
+<hr>
+
+<h3>Add volunteers to a Project</h3>
+<form action="/projects/:id" method="post">
+  <div class="form-group">
+    <label for="project_id">Select a Project for this Volunteer</label>
+    <select id='project_id' name='project_id' type='text'>
+      <% @projects.each() do |project| %>
+        <option value="<%= project.id()%>"> <%= project.title %> </option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
+     <label for="name">Enter the volunteer's first and last name:</label>
+     <input name="name" class="form-control" type="text">
+  </div>
+
+  <div class="form-group">
+     <label for="hours">Enter the volunteer's hours logged:</label>
+     <input name="hours" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Add Volunteer</button>
+</form>

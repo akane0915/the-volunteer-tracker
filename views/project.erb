@@ -1,0 +1,13 @@
+<h1><%= @project.title %></h1>
+
+<% if @project.volunteers.any? %>
+  <ul>
+    <% @project.volunteers.each do |volunteer| %>
+      <li><%= volunteer.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+<p>No volunteers have been added to this project yet!</p>
+<% end %>
+
+<a class = "btn btn-default" href="/">Return Home</a>
