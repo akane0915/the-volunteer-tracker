@@ -62,7 +62,18 @@ delete'/projects/:id' do
 end
 
 get '/volunteers/:name/edit' do
-  @name = pararms.fetch('name')
+  @name = params.fetch('name')
   @volunteer = Volunteer.find(@name)
   erb :volunteer_edit
+end
+
+patch '/volunteers/:name' do
+  new_name = params.fetch('new_name')
+  new_hours = params.fetch('new_hours')
+  @name = params.fetch('name')
+  @volunteer = Volunteer.find(@name)
+  @volunteer.update({:name => new_name, :hours => new_hours})
+  project_id = @volunteer.project_id
+  @project = Project.find(project_id)
+  erb :project
 end
