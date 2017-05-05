@@ -35,4 +35,16 @@ class Project
     end
     matched_project
   end
+
+  def volunteers
+    matched_volunteers =[]
+    db_output = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id}")
+    db_output.each do |volunteer|
+      name = volunteer.fetch('name')
+      hours = volunteer.fetch('hours').to_i
+      project_id = volunteer.fetch('project_id').to_i
+      matched_volunteers.push(Volunteer.new({:name => name, :hours => hours, :project_id => project_id}))
+    end
+    matched_volunteers
+  end
 end

@@ -51,4 +51,16 @@ describe Project do
       expect(Project.find(project1.id)).to eq project1
     end
   end
+
+  describe '#volunteers' do
+    it 'returns all an array of all volunteers for a specific project' do
+      test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+      test_project.save
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => test_project.id})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id})
+      volunteer2.save
+      expect(test_project.volunteers).to eq [volunteer1, volunteer2]
+    end
+  end
 end
