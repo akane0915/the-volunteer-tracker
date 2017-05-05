@@ -31,10 +31,9 @@ Bundler
 ## Setup/Installation Requirements
 
 * _View the project at               _
-*_Set up a production database and a development database (see instructions below)_
-* _Or you can clone this repository to your machine, navigate to the file path in your terminal, and run app.rb by typing $ruby app.rb_
-* _Then you have the option to clone this repository_
-* _If you chose to clone the repository, after you run 'app.rb' you will need to copy the localhost path into your web browswer. The standard localhost for Sinatra is port 4567_
+*_Set up a production database and a development database in SQL (see instructions below)_
+* _Clone this repository to your machine and navigate to the file path in your terminal, and run app.rb by typing $ruby app.rb_
+* _After you run 'app.rb' you will need to copy the localhost path into your web browswer. The standard localhost for Sinatra is port 4567_
 * _If you would like to make changes, open files in text editor of your choice_
 * _Make changes as desired_
 * _Make frequent commits with detailed comments_

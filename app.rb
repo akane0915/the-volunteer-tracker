@@ -13,7 +13,6 @@ get '/' do
   erb :index
 end
 
-# post '/projects' do
 post '/' do
   title = params.fetch('title')
   new_project = Project.new({:title => title, :id => nil})
@@ -28,7 +27,6 @@ get '/projects/:id' do
   erb :project
 end
 
-# post '/volunteers' do
 post '/projects/:id' do
   # @id = params.fetch('id').to_i
   name = params.fetch('name')
