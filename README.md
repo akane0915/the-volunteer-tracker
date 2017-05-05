@@ -44,11 +44,12 @@ Bundler
 * _run $postgres in your terminal window and leave it running_
 * _In another terminal window, run $psql_
 * _Type the following:_
-** _CREATE DATABASE volunteer_tracker;_
-** _\c volunteer_tracker_
-** _CREATE TABLE projects (id serial PRIMARY KEY, title varchar);_
-** _CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar, hours int, project_id int);_
-** _CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;_
+
+* _CREATE DATABASE volunteer_tracker;_
+* _\c volunteer_tracker_
+* _CREATE TABLE projects (id serial PRIMARY KEY, title varchar);_
+* _CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar, hours int, project_id int);_
+* _CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;_
 
 ## Known Bugs
 _N/A_
