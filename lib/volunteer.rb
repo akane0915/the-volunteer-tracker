@@ -6,4 +6,8 @@ class Volunteer
     @hours = attributes.fetch(:hours)
     @project_id = attributes.fetch(:project_id)
   end
+
+  def ==(another_volunteer)
+    @name == another_volunteer.name
+  end
 end
