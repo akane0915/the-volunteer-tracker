@@ -77,3 +77,12 @@ patch '/volunteers/:name' do
   @project = Project.find(project_id)
   erb :project
 end
+
+delete '/volunteers/:name' do
+  name = params.fetch('name')
+  @volunteer = Volunteer.find(name)
+  project_id = @volunteer.project_id
+  @project = Project.find(project_id)
+  @volunteer.delete
+  erb :project
+end
