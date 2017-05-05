@@ -1,18 +1,9 @@
 
 <h1>Welcome to <em>BetterTheWorld's</em> Volunteer Tracker</h1>
-<h3>Use this handy dandy application to keep track of projects and volunteers!  Let's BetterTheWorld one project at a time.</h3>
+<h5>Use this handy dandy application to keep track of projects and volunteers!  Let's BetterTheWorld one project at a time.</h5>
 
-<h3>Create a Project</h3>
-
-<form action="/" method="post">
-  <div class="form-group">
-     <label for="title">Enter the Project Title:</label>
-     <input name="title" class="form-control" type="text">
-  </div>
-  <br>
-  <button class="btn btn-default">Create Project</button>
-</form>
-<hr>
+<!-- List of all Projects -->
+<h3>Your Saved Projects</h3>
 
 <% if @projects.any? %>
   <h3>Click on a project to see its volunteers:</h3>
@@ -26,7 +17,22 @@
 <% end %>
 <hr>
 
+<!-- Create a project -->
+<h3>Create a Project</h3>
+
+<form action="/" method="post">
+  <div class="form-group">
+     <label for="title">Enter the Project Title:</label>
+     <input name="title" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Create Project</button>
+</form>
+<hr>
+
+<!-- Add Volunteers to a Project -->
 <h3>Add volunteers to a Project</h3>
+
 <form action="/projects/:id" method="post">
   <div class="form-group">
     <label for="project_id">Select a Project for this Volunteer</label>
