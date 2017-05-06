@@ -46,7 +46,7 @@ describe 'the project delete path', {:type => :feature} do
   end
 end
 
-describe 'the volunteer creation and deletion path', {:type => :feature} do
+describe 'the volunteer creation path', {:type => :feature} do
   it 'adds a volunteer to a project' do
     test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
     test_project.save
@@ -57,9 +57,34 @@ describe 'the volunteer creation and deletion path', {:type => :feature} do
     click_button('Add Volunteer')
     expect(page).to have_content('Sally Jenkins')
   end
-  # it 'deletes a volunteer' do
-  #   click_link('Sally Jenkins')
-  #   click_button('Delete Volunteer')
-  #   expect(page).to have_content('Bellview Elementary School Garden Planting')
-  # end
+end
+
+describe 'the volunteer update path', {:type => :feature} do
+  it 'updates a volunteer' do
+    test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Sally Jenkins', :hours => 0, :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit "/projects/#{project_id}"
+    click_link('Sally Jenkins')
+    fill_in('name', :with => 'Sally Randall')
+    fill_in('hours', :with => 5)
+    click_button('Update Volunteer Details')
+    expect(page).to have_content('Sally Randall')
+  end
+end
+
+describe 'the volunteer deletion path', {:type => :feature} do
+  it 'deletes a volunteer' do
+    test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Sally Jenkins', :hours => 0, :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit "/projects/#{project_id}"
+    click_link('Sally Jenkins')
+    click_button('Delete Volunteer')
+    expect(page).to have_content('Bellview Elementary School Garden Planting')
+  end
 end

@@ -29,17 +29,19 @@ Bundler
 
 
 ## Setup/Installation Requirements
-
-* _View the project at               _
+           _
 *_Set up a production database and a development database in SQL (see instructions below)_
-* _Clone this repository to your machine and navigate to the file path in your terminal, and run app.rb by typing $ruby app.rb_
-* _After you run 'app.rb' you will need to copy the localhost path into your web browswer. The standard localhost for Sinatra is port 4567_
+* _In another terminal window, clone this repository to your machine and navigate to the file path in your terminal._
+* _Run $bundle_
+* _Run $ruby app.rb_
+* _Type localhost:4567 in a browser window to view application_
 * _If you would like to make changes, open files in text editor of your choice_
 * _Make changes as desired_
 * _Make frequent commits with detailed comments_
 * _Submit changes as pull request to Asia at akane0915 on Github_
 
 ## Database Setup Instructions
+
 * _If Postgres is not installed on your computer, follow these instructions https://www.learnhowtoprogram.com/ruby/ruby-database-basics/installing-postgres-7fb0cff7-a0f5-4b61-a0db-8a928b9f67ef_
 * _run $postgres in your terminal window and leave it running_
 * _In another terminal window, run $psql_
