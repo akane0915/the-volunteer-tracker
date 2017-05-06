@@ -21,16 +21,17 @@ Bundler
 ## Specifications
 | Behavior |  Input   |  Output  |
 |----------|:--------:|:--------:|
-|Program will allow user to input a project on the homepage|||
-|Program will allow user to input a volunteer to a specific project (via dropdown) on the homepage|||
-|Program will allow user to view all projects on the homepage and click on a project to be taken to the project details page|||
-|On the project details page, program will display the volunteers who are working on that project|||
-|On a project edit page, program will allow users to update a project's details or delete a project entirely|||
+|Program will allow user to input a project on the homepage| project title = 'Bellview Elementary School Garden Planting'| 'Bellview Elementary School Garden Planting' |
+|Program will allow user to input a volunteer to a specific project (via dropdown) on the homepage| project title = 'Bellview Elementary School Garden Planting', volunteer name = 'Sally Jenkins', hours = 0 | 'Sally Jenkins' 0|
+|Program will allow user to view all projects on the homepage and click on a project to be taken to the project details page| click 'Bellview Elementary School Garden Planting' | 'Bellview Elementary School Garden Planting', 'Sally Jenkins', (update project details link) |
+|On the project details page, program will display the volunteers who are working on that project| N/A | 'Bellview Elementary School Garden Planting' 'Sally Jenkins'|
+|On a project edit page, program will allow users to update a project's details or delete a project entirely| On 'Bellview Elementary School Garden Planting' click button to edit | Edit and delete project options|
+|On a volunteer edit page, program will allow users to update a volunteers's details or delete a volunteer entirely| On 'Bellview Elementary School Garden Planting' details page, click 'Sally Jenkins' button to edit | Edit and delete volunteer options|
 
 
 ## Setup/Installation Requirements
            _
-*_Set up a production database and a development database in SQL (see instructions below)_
+* _Set up a production database and a development database in SQL (see instructions below)_
 * _In another terminal window, clone this repository to your machine and navigate to the file path in your terminal._
 * _Run $bundle_
 * _Run $ruby app.rb_
