@@ -20,7 +20,7 @@
 <!-- Create a project -->
 <h3>Create a Project</h3>
 
-<form action="/" method="post">
+<form action="/projects" method="post">
   <div class="form-group">
      <label for="title">Enter the Project Title:</label>
      <input name="title" class="form-control" type="text">
@@ -33,7 +33,7 @@
 <!-- Add Volunteers to a Project -->
 <h3>Add volunteers to a Project</h3>
 
-<form action="/projects/:id" method="post">
+<form action="/volunteers" method="post">
   <div class="form-group">
     <label for="project_id">Select a Project for this Volunteer</label>
     <select id='project_id' name='project_id' type='text'>

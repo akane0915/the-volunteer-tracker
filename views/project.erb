@@ -15,7 +15,7 @@
       <% @project.volunteers.each do |volunteer| %>
 
         <tr>
-          <td><a href="/volunteers/<%=volunteer.name%>/edit"><%=volunteer.name%></a></td>
+          <td><a href="/volunteers/<%=volunteer.id%>/edit"><%=volunteer.name%></a></td>
           <td><%=volunteer.hours%></td>
         </tr>
 

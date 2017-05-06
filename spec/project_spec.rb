@@ -64,9 +64,9 @@ describe Project do
     it 'returns all an array of all volunteers for a specific project' do
       test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
       test_project.save
-      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => test_project.id})
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => test_project.id, :id => nil})
       volunteer1.save
-      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id})
+      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id, :id => nil})
       volunteer2.save
       expect(test_project.volunteers).to eq [volunteer1, volunteer2]
     end
@@ -92,9 +92,9 @@ describe Project do
     it 'deletes all volunteers working on a project when that project is deleted' do
       test_project = Project.new({:title => 'Bellview Elementary School Garden Planting', :id => nil})
       test_project.save
-      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => test_project.id})
+      volunteer1 = Volunteer.new({:name => 'Sally', :hours => 10, :project_id => test_project.id, :id => nil})
       volunteer1.save
-      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id})
+      volunteer2 = Volunteer.new({:name => 'Joe', :hours => 15, :project_id => test_project.id, :id => nil})
       volunteer2.save
       test_project.delete
       expect(Volunteer.all).to eq []

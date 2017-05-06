@@ -43,7 +43,8 @@ class Project
       name = volunteer.fetch('name')
       hours = volunteer.fetch('hours').to_i
       project_id = volunteer.fetch('project_id').to_i
-      matched_volunteers.push(Volunteer.new({:name => name, :hours => hours, :project_id => project_id}))
+      id = volunteer.fetch('id').to_i
+      matched_volunteers.push(Volunteer.new({:name => name, :hours => hours, :project_id => project_id, :id => id}))
     end
     matched_volunteers
   end
